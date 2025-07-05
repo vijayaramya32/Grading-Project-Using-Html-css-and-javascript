@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Report</title>
+    <style>
+        div{
+            display: flex;
+            flex-direction: column;   
+            align-items: center;     
+            justify-content: center; 
+            background: #33ffff;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Marks Report</h2>
+        <table>
+            <tr>
+                <td><label>Roll no</label></td>
+                <td><input type="text" id="Rno"/></td>
+            </tr>
+            <tr>
+                <td><label>HTML</label></td>
+                <td><input type="text" id="Hm"/></td>
+            </tr>
+            <tr>
+                <td><label>CSS</label></td>
+                <td><input type="text" id="Cm"/></td>
+            </tr>
+            <tr>
+                <td><label>Javascript</label></td>
+                <td><input type="text" id="Jm"/></td>
+            </tr>
+            <tr align="center">
+                <td colspan="2"><button onClick="getResult()">get result</button></td>
+            </tr>
+            <tr align="center">
+                <td colspan="2"><output id="Total"></output>
+                <output id="average"></output> 
+                <output id="Grade"></output></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        function getResult(){
+            let total,h,c,J,avg,grd;
+            h_m=+Hm.value;
+            c=+Cm.value;
+            J=+Jm.value;
+            Total_marks=h_m+c+J;
+            avg=Total_marks/3;
+            if (h_m>=40&& c>=40 && J>=40){
+                if (avg>=90){
+                    grd="A+";
+                }
+                else if(avg>=80 && avg<90){
+                    grd="A";
+                }
+                else if(avg>=70 && avg<80){
+                    grd="B+";
+                }
+                else if(avg>=60 && avg<70){
+                    grd="B";
+                }
+                else if(avg>=50 && avg<60){
+                    grd="C";
+                }
+                else {
+                    grd="D";
+                }
+            }
+                else{
+                    grd="fail";
+
+                }
+            Total.innerHTML="Total marks:"+Total_marks+"<br>";
+            average.innerHTML="average:"+avg+"<br>";
+            Grade.innerHTML="grade:"+grd;
+                          
+            }
+
+    </script>
+    
+</body>
+</html>
